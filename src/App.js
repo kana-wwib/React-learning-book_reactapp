@@ -1,38 +1,37 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import './App.css';
-import Memo from './memo/Memo';
-import AddForm from './memo/AddForm';
-import FindForm from './memo/FindForm';
-import DelForm from './memo/DelForm';
-import PersistForm from './memo/PersistForm';
+import Sampledata from './fire/SampleData';
+import firebase from "firebase";
+
+//Firebaseの設定
+var firebaseConfig = {
+  apiKey: "AIzaSyCyeyM4ONQJu-QYEEFMkJbNm2TZ6s-Kf3U",
+  authDomain: "kana-react.firebaseapp.com",
+  databaseURL: "https://kana-react.firebaseio.com",
+  projectId: "kana-react",
+  storageBucket: "kana-react.appspot.com",
+  messagingSenderId: "646454837215",
+  appId: "1:646454837215:web:41cff14677e222e563ce6a",
+  measurementId: "G-FCZ95BBRJH"
+};
+
+//Firebaseの初期化
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
 
 //Appコンポーネント
-
 class App extends Component {
-  td = {
-    width: "250px"
-  }
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <div>
-        <h1>Memo</h1>
-        <AddForm />
-        <hr />
-        <table><tbody><tr>
-          <td style={this.td}><FindForm /></td>
-          <td style={this.td}><DelForm /></td>
-          <td style={this.td}><PersistForm /></td>
-        </tr></tbody></table>
-        <Memo />
+        <h1>Fire</h1>
+        <h2>Sample data.</h2>
+        <Sampledata />
       </div>
     );
   }
 }
 
-export default connect()(App);
+export default App;
